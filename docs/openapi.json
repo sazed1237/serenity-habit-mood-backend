@@ -3092,14 +3092,14 @@
     }
   },
   "info": {
-    "title": "undefined api",
-    "description": "undefined api docs",
+    "title": "Serenity Habit & Mood Coach api",
+    "description": "Serenity Habit & Mood Coach api docs",
     "version": "1.0",
     "contact": {}
   },
   "tags": [
     {
-      "name": "undefined",
+      "name": "Serenity Habit & Mood Coach",
       "description": ""
     }
   ],
