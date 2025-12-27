@@ -5,12 +5,12 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { join } from 'path';
-// import express from 'express';
 // internal imports
 import { AppModule } from './app.module';
 import appConfig from './config/app.config';
 import { CustomExceptionFilter } from './common/exception/custom-exception.filter';
 import { SazedStorage } from './common/lib/Disk/SazedStorage';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -80,7 +80,18 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
+
+  // Export OpenAPI spec for static hosting (e.g., GitHub Pages in /docs)
+  const docsDir = join(process.cwd(), 'docs');
+  if (!existsSync(docsDir)) {
+    mkdirSync(docsDir, { recursive: true });
+  }
+  writeFileSync(
+    join(docsDir, 'openapi.json'),
+    JSON.stringify(document, null, 2),
+  );
   SwaggerModule.setup('api/docs', app, document);
+
   // end swagger
 
   await app.listen(process.env.PORT ?? 4000, '0.0.0.0');

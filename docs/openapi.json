@@ -1,0 +1,3576 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-chunk-stream": {
+      "get": {
+        "operationId": "AppController_chunkStream",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-file-stream": {
+      "get": {
+        "operationId": "AppController_testFileStream",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/test-file-upload": {
+      "post": {
+        "operationId": "AppController_test",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get user details",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "operationId": "AuthController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Register a user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Login user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/refresh-token": {
+      "post": {
+        "operationId": "AuthController_refreshToken",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Refresh token",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/google": {
+      "get": {
+        "operationId": "AuthController_googleLogin",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Google login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/google/redirect": {
+      "get": {
+        "operationId": "AuthController_googleAuthRedirect",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/apple": {
+      "get": {
+        "operationId": "AuthController_appleAuth",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/apple/redirect": {
+      "get": {
+        "operationId": "AuthController_appleAuthRedirect",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/update": {
+      "patch": {
+        "operationId": "AuthController_updateUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update user",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "operationId": "AuthController_forgotPassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Forgot password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/verify-email": {
+      "post": {
+        "operationId": "AuthController_verifyEmail",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Verify email",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/resend-verification-email": {
+      "post": {
+        "operationId": "AuthController_resendVerificationEmail",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Resend verification email",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "operationId": "AuthController_resetPassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Reset password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/change-password": {
+      "post": {
+        "operationId": "AuthController_changePassword",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Change password",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/request-email-change": {
+      "post": {
+        "operationId": "AuthController_requestEmailChange",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "request email change",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/change-email": {
+      "post": {
+        "operationId": "AuthController_changeEmail",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Change email address",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/generate-2fa-secret": {
+      "post": {
+        "operationId": "AuthController_generate2FASecret",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Generate 2FA secret",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/verify-2fa": {
+      "post": {
+        "operationId": "AuthController_verify2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Verify 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/enable-2fa": {
+      "post": {
+        "operationId": "AuthController_enable2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Enable 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/auth/disable-2fa": {
+      "post": {
+        "operationId": "AuthController_disable2FA",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Disable 2FA",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/notification": {
+      "get": {
+        "operationId": "AppNotificationController_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List notifications for current user",
+        "tags": [
+          "Notification"
+        ]
+      },
+      "post": {
+        "operationId": "AppNotificationController_create",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create and dispatch a notification to a user",
+        "tags": [
+          "Notification"
+        ]
+      },
+      "delete": {
+        "operationId": "AppNotificationController_removeAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete all notifications for current user",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notification/unread-count": {
+      "get": {
+        "operationId": "AppNotificationController_unread",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Unread count",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notification/{id}/read": {
+      "post": {
+        "operationId": "AppNotificationController_markRead",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mark a notification as read",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notification/read-all": {
+      "post": {
+        "operationId": "AppNotificationController_markAllRead",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mark all notifications as read",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/notification/{id}": {
+      "delete": {
+        "operationId": "AppNotificationController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete a notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "operationId": "ContactController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create contact",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/faq": {
+      "get": {
+        "operationId": "FaqController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get all faq",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/faq/{id}": {
+      "get": {
+        "operationId": "FaqController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get faq by id",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq": {
+      "post": {
+        "operationId": "FaqController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "get": {
+        "operationId": "FaqController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read all faqs",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq/batch-create": {
+      "post": {
+        "operationId": "FaqController_batchCreate",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchCreateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Batch create or update faqs",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/faq/{id}": {
+      "get": {
+        "operationId": "FaqController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "patch": {
+        "operationId": "FaqController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateFaqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update faq",
+        "tags": [
+          "Faq"
+        ]
+      },
+      "delete": {
+        "operationId": "FaqController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete faq",
+        "tags": [
+          "Faq"
+        ]
+      }
+    },
+    "/api/admin/contact": {
+      "post": {
+        "operationId": "ContactController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "get": {
+        "operationId": "ContactController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read all contacts",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/admin/contact/{id}": {
+      "get": {
+        "operationId": "ContactController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "patch": {
+        "operationId": "ContactController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update contact",
+        "tags": [
+          "Contact"
+        ]
+      },
+      "delete": {
+        "operationId": "ContactController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete contact",
+        "tags": [
+          "Contact"
+        ]
+      }
+    },
+    "/api/admin/website-info": {
+      "post": {
+        "operationId": "WebsiteInfoController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebsiteInfoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update website info",
+        "tags": [
+          "Website Info"
+        ]
+      },
+      "get": {
+        "operationId": "WebsiteInfoController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get website info",
+        "tags": [
+          "Website Info"
+        ]
+      }
+    },
+    "/api/admin/payment-transaction": {
+      "get": {
+        "operationId": "PaymentTransactionController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all packages",
+        "tags": [
+          "Payment transaction"
+        ]
+      }
+    },
+    "/api/admin/payment-transaction/{id}": {
+      "get": {
+        "operationId": "PaymentTransactionController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get one package",
+        "tags": [
+          "Payment transaction"
+        ]
+      },
+      "delete": {
+        "operationId": "PaymentTransactionController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Payment transaction"
+        ]
+      }
+    },
+    "/api/admin/user": {
+      "post": {
+        "operationId": "UserController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Create a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "operationId": "UserController_findAll",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Get all users"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}/approve": {
+      "post": {
+        "operationId": "UserController_approve",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Approve a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}/reject": {
+      "post": {
+        "operationId": "UserController_reject",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Reject a user"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/user/{id}": {
+      "get": {
+        "operationId": "UserController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Get a user by id"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "patch": {
+        "operationId": "UserController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "delete": {
+        "operationId": "UserController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/admin/notification": {
+      "get": {
+        "operationId": "NotificationController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all notifications",
+        "tags": [
+          "Notification"
+        ]
+      },
+      "delete": {
+        "operationId": "NotificationController_removeAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete all notifications",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/admin/notification/{id}": {
+      "delete": {
+        "operationId": "NotificationController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/chat/conversation": {
+      "post": {
+        "operationId": "ConversationController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConversationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Create conversation",
+        "tags": [
+          "Conversation"
+        ]
+      },
+      "get": {
+        "operationId": "ConversationController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all conversations",
+        "tags": [
+          "Conversation"
+        ]
+      }
+    },
+    "/api/chat/conversation/{id}": {
+      "get": {
+        "operationId": "ConversationController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get a conversation by id",
+        "tags": [
+          "Conversation"
+        ]
+      },
+      "delete": {
+        "operationId": "ConversationController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete a conversation",
+        "tags": [
+          "Conversation"
+        ]
+      }
+    },
+    "/api/chat/message": {
+      "post": {
+        "operationId": "MessageController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Send message",
+        "tags": [
+          "Message"
+        ]
+      },
+      "get": {
+        "operationId": "MessageController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all messages",
+        "tags": [
+          "Message"
+        ]
+      }
+    },
+    "/api/chat/user": {
+      "get": {
+        "operationId": "UserController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/payment/stripe/webhook": {
+      "post": {
+        "operationId": "StripeController_handleWebhook",
+        "parameters": [
+          {
+            "name": "stripe-signature",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Stripe"
+        ]
+      }
+    },
+    "/api/subscription/plans": {
+      "get": {
+        "operationId": "SubscriptionController_listPlans",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "List available plans",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/subscription/create": {
+      "post": {
+        "operationId": "SubscriptionController_createServerSubscription",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubscriptionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create a Stripe subscription (server-side) and return client secret if confirmation needed",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/subscription/status": {
+      "get": {
+        "operationId": "SubscriptionController_getStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get subscription status",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/subscription/start-trial": {
+      "post": {
+        "operationId": "SubscriptionController_startTrial",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Start a free trial",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/subscription/subscribe": {
+      "post": {
+        "operationId": "SubscriptionController_subscribe",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create (record) a paid subscription after Stripe confirmation",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/subscription/cancel": {
+      "delete": {
+        "operationId": "SubscriptionController_cancel",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Cancel subscription at period end",
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/api/habit/create": {
+      "post": {
+        "operationId": "HabitController_createHabit",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateHabitDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create a new habit",
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/habit": {
+      "get": {
+        "operationId": "HabitController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get all habits for the user",
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/habit/today": {
+      "get": {
+        "operationId": "HabitController_today",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Today's habits (with completion status)",
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/habit/{id}": {
+      "get": {
+        "operationId": "HabitController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get habit by ID",
+        "tags": [
+          "Habit"
+        ]
+      },
+      "patch": {
+        "operationId": "HabitController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateHabitDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Habit"
+        ]
+      },
+      "delete": {
+        "operationId": "HabitController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/habit/{id}/complete": {
+      "post": {
+        "operationId": "HabitController_complete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteHabitDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Complete a habit",
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/habit/{id}/history": {
+      "get": {
+        "operationId": "HabitController_history",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "days",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "all",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Habit history (logs) for last N days; use ?all=1 for all-time or ?days=N",
+        "tags": [
+          "Habit"
+        ]
+      }
+    },
+    "/api/inspiration/daily/{keyword}": {
+      "get": {
+        "operationId": "InspirationController_getDailyInspirationKeyword",
+        "parameters": [
+          {
+            "name": "keyword",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get daily inspiration quote for a specific keyword",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/daily": {
+      "get": {
+        "operationId": "InspirationController_getDailyInspiration",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get daily inspiration quote (random or auto)",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/recent/list": {
+      "get": {
+        "operationId": "InspirationController_recent",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Recent inspiration quotes (user scope)",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/browse/all": {
+      "get": {
+        "operationId": "InspirationController_browseAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Browse counts by keyword (all)",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/browse/mine": {
+      "get": {
+        "operationId": "InspirationController_browseMine",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Browse counts by keyword (only my saved/generated)",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/new": {
+      "get": {
+        "operationId": "InspirationController_newQuote",
+        "parameters": [
+          {
+            "name": "keyword",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Force fetch a new quote (optional keyword via query param ?keyword=)",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/inspiration/personalized/quote": {
+      "get": {
+        "operationId": "InspirationController_personalized",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Personalized quote based on recent mood entries",
+        "tags": [
+          "Inspiration"
+        ]
+      }
+    },
+    "/api/profile/me": {
+      "get": {
+        "operationId": "ProfileController_getMe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get my profile",
+        "tags": [
+          "Profile"
+        ]
+      },
+      "patch": {
+        "operationId": "ProfileController_updateMe",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Update my profile",
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/api/profile/overview/me": {
+      "get": {
+        "description": "Returns combined metrics for habits and AI routines, including level, streaks, meditation minutes, and today's routine summary.",
+        "operationId": "ProfileController_overview",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Profile overview metrics (habits + AI routines)",
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/api/profile/achievements/me": {
+      "get": {
+        "operationId": "ProfileController_achievements",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Unlocked achievements for the current user",
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/api/mood": {
+      "post": {
+        "operationId": "MoodController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMoodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/preview": {
+      "post": {
+        "operationId": "MoodController_preview",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMoodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/today": {
+      "get": {
+        "operationId": "MoodController_getToday",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/recent": {
+      "get": {
+        "operationId": "MoodController_recent",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/trend": {
+      "get": {
+        "operationId": "MoodController_trend",
+        "parameters": [
+          {
+            "name": "days",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/insights": {
+      "get": {
+        "operationId": "MoodController_insights",
+        "parameters": [
+          {
+            "name": "days",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/emotions": {
+      "get": {
+        "operationId": "MoodController_listEmotions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/history": {
+      "get": {
+        "operationId": "MoodController_history",
+        "parameters": [
+          {
+            "name": "cursor",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/mood/{id}": {
+      "patch": {
+        "operationId": "MoodController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMoodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      },
+      "delete": {
+        "operationId": "MoodController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Mood"
+        ]
+      }
+    },
+    "/api/stats/summary": {
+      "get": {
+        "operationId": "StatsController_summary",
+        "parameters": [
+          {
+            "name": "period",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Summary metrics for selected period (week|month)",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/stats/progress": {
+      "get": {
+        "operationId": "StatsController_progress",
+        "parameters": [
+          {
+            "name": "period",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Progress rows for selected period (week=days)",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/stats/habit-progress": {
+      "get": {
+        "operationId": "StatsController_habitProgress",
+        "parameters": [
+          {
+            "name": "period",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Habit progress over last 30 days (per habit)",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/stats/habit-progress/categories": {
+      "get": {
+        "operationId": "StatsController_habitProgressByCategory",
+        "parameters": [
+          {
+            "name": "period",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Habit progress grouped by category for selected period",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/stats/achievements": {
+      "get": {
+        "operationId": "StatsController_achievements",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Achievement unlock status",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/stats/overall-progress": {
+      "get": {
+        "operationId": "StatsController_overall",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Overall completion progress (circular indicator)",
+        "tags": [
+          "Stats"
+        ]
+      }
+    },
+    "/api/account/support": {
+      "post": {
+        "operationId": "AccountController_contactSupport",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactSupportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Contact support",
+        "tags": [
+          "Account"
+        ]
+      },
+      "get": {
+        "operationId": "AccountController_listMySupport",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Account"
+        ]
+      }
+    },
+    "/api/account/support/{ticketId}": {
+      "get": {
+        "operationId": "AccountController_getMySupport",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Account"
+        ]
+      }
+    },
+    "/api/account/support/{ticketId}/{status}": {
+      "patch": {
+        "operationId": "AccountController_updateSupportStatus",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Account"
+        ]
+      }
+    },
+    "/api/account/feedback": {
+      "post": {
+        "operationId": "AccountController_sendFeedback",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Send Feedback",
+        "tags": [
+          "Account"
+        ]
+      }
+    },
+    "/api/account/me": {
+      "delete": {
+        "operationId": "AccountController_deleteAccount",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Delete my account (soft delete & anonymize)",
+        "tags": [
+          "Account"
+        ]
+      }
+    },
+    "/api/firebase/folders": {
+      "get": {
+        "operationId": "FirebaseStorageController_listFolders",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "List top-level folders in the Firebase bucket",
+        "tags": [
+          "Firebase Storage"
+        ]
+      }
+    },
+    "/api/firebase/files": {
+      "get": {
+        "operationId": "FirebaseStorageController_listFiles",
+        "parameters": [
+          {
+            "name": "prefix",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "List files under a given prefix (folder)",
+        "tags": [
+          "Firebase Storage"
+        ]
+      }
+    },
+    "/api/firebase/signed-url": {
+      "get": {
+        "operationId": "FirebaseStorageController_getSignedUrl",
+        "parameters": [
+          {
+            "name": "path",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expires",
+            "required": false,
+            "in": "query",
+            "description": "Expiry in seconds (default 3600)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get a signed download URL for a file path",
+        "tags": [
+          "Firebase Storage"
+        ]
+      }
+    },
+    "/api/home/today": {
+      "get": {
+        "operationId": "HomeController_today",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Today's progress summary",
+        "tags": [
+          "Home"
+        ]
+      }
+    },
+    "/api/ai/routines/onboarding": {
+      "post": {
+        "operationId": "AiRoutinesController_saveOnboarding",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/generate-today": {
+      "post": {
+        "operationId": "AiRoutinesController_generateToday",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/today": {
+      "get": {
+        "operationId": "AiRoutinesController_today",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/history": {
+      "get": {
+        "operationId": "AiRoutinesController_history",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/{routineId}": {
+      "get": {
+        "operationId": "AiRoutinesController_routineDetails",
+        "parameters": [
+          {
+            "name": "routineId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assets",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/{routineId}/redo": {
+      "post": {
+        "operationId": "AiRoutinesController_redoRoutine",
+        "parameters": [
+          {
+            "name": "routineId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/item/{itemId}/start": {
+      "post": {
+        "operationId": "AiRoutinesController_startItem",
+        "parameters": [
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/item/{itemId}/complete": {
+      "post": {
+        "operationId": "AiRoutinesController_completeItem",
+        "parameters": [
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/mood-check": {
+      "post": {
+        "operationId": "AiRoutinesController_moodCheck",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/today/assets": {
+      "get": {
+        "operationId": "AiRoutinesController_todayWithAssets",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/ai/routines/item/{itemId}/journal": {
+      "post": {
+        "operationId": "AiRoutinesController_submitJournal",
+        "parameters": [
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "AI Routines"
+        ]
+      }
+    },
+    "/api/reminders/set": {
+      "post": {
+        "operationId": "RemindersController_setReminders",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Set reminders",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    },
+    "/api/reminders": {
+      "get": {
+        "operationId": "RemindersController_getAllReminders",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get all reminders",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    },
+    "/api/reminders/upcoming": {
+      "get": {
+        "operationId": "RemindersController_getUpcomingReminders",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get upcoming reminders",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    },
+    "/api/reminders/reminder-slots/{preferred}": {
+      "get": {
+        "operationId": "RemindersController_reminderSlots",
+        "parameters": [
+          {
+            "name": "preferred",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List 30-minute reminder slots for a preferred time window",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    },
+    "/api/reminders/{id}/turn-off-on": {
+      "patch": {
+        "operationId": "RemindersController_turnOffOnReminder",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Turn off/on a reminder",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    },
+    "/api/reminders/{id}": {
+      "patch": {
+        "operationId": "RemindersController_editReminder",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateReminderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Edit a reminder",
+        "tags": [
+          "Reminders"
+        ]
+      },
+      "delete": {
+        "operationId": "RemindersController_deleteReminder",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Delete a reminder",
+        "tags": [
+          "Reminders"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "undefined api",
+    "description": "undefined api docs",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "undefined",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user",
+            "example": "john.doe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "The password of the user",
+            "example": "password"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the user",
+            "example": "user"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The avatar of the user",
+            "example": "avatar.png"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "description": "The date of birth of the user",
+            "example": "1990-01-01"
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the user",
+            "example": "male"
+          },
+          "address": {
+            "type": "string",
+            "description": "The location of the user",
+            "example": "New York, USA"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "type",
+          "avatar",
+          "date_of_birth",
+          "gender",
+          "address"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user",
+            "example": "john.doe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "The password of the user",
+            "example": "password"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the user",
+            "example": "user"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The avatar of the user",
+            "example": "avatar.png"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "description": "The date of birth of the user",
+            "example": "1990-01-01"
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the user",
+            "example": "male"
+          },
+          "address": {
+            "type": "string",
+            "description": "The location of the user",
+            "example": "New York, USA"
+          }
+        }
+      },
+      "VerifyEmailDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "otp"
+        ]
+      },
+      "CreateContactDto": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "description": "First name",
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email",
+            "example": "john.doe@example.com"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number",
+            "example": "+1234567890"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message",
+            "example": "Hello, I have a question about your product."
+          }
+        },
+        "required": [
+          "first_name",
+          "last_name",
+          "email",
+          "phone_number",
+          "message"
+        ]
+      },
+      "CreateFaqDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "FAQ question",
+            "example": "What is the price of the hotel?"
+          },
+          "answer": {
+            "type": "string",
+            "description": "FAQ answer",
+            "example": "The price of the hotel is 10000 BDT per night."
+          },
+          "sort_order": {
+            "type": "number",
+            "description": "Sort order",
+            "example": 1
+          }
+        },
+        "required": [
+          "question",
+          "answer",
+          "sort_order"
+        ]
+      },
+      "BatchCreateFaqDto": {
+        "type": "object",
+        "properties": {
+          "faqs": {
+            "description": "Faq data array",
+            "example": [
+              {
+                "question": "What is the price of the hotel?",
+                "answer": "The price of the hotel is 10000 BDT per night.",
+                "sort_order": 1
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "faqs"
+        ]
+      },
+      "UpdateFaqDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "FAQ question",
+            "example": "What is the price of the hotel?"
+          },
+          "answer": {
+            "type": "string",
+            "description": "FAQ answer",
+            "example": "The price of the hotel is 10000 BDT per night."
+          },
+          "sort_order": {
+            "type": "number",
+            "description": "Sort order",
+            "example": 1
+          }
+        }
+      },
+      "UpdateContactDto": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "description": "First name",
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email",
+            "example": "john.doe@example.com"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number",
+            "example": "+1234567890"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message",
+            "example": "Hello, I have a question about your product."
+          }
+        }
+      },
+      "CreateWebsiteInfoDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the website",
+            "example": "My Website"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "The phone number of the website",
+            "example": "081234567890"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the website",
+            "example": "mywebsite@gmail.com"
+          },
+          "address": {
+            "type": "string",
+            "description": "The address of the website",
+            "example": "Jl. Raya No. 123, Jakarta, Indonesia"
+          },
+          "logo": {
+            "description": "The logo of the website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "favicon": {
+            "description": "The favicon of the website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "copyright": {
+            "type": "string",
+            "description": "The copyright of the website",
+            "example": "© 2025 My Website. All rights reserved."
+          },
+          "cancellation_policy": {
+            "type": "string",
+            "description": "The cancellation policy of the website"
+          }
+        },
+        "required": [
+          "name",
+          "phone_number",
+          "email",
+          "address",
+          "logo",
+          "favicon",
+          "copyright",
+          "cancellation_policy"
+        ]
+      },
+      "CreateConversationDto": {
+        "type": "object",
+        "properties": {
+          "creator_id": {
+            "type": "string",
+            "description": "The id of the creator"
+          },
+          "participant_id": {
+            "type": "string",
+            "description": "The id of the participant"
+          }
+        },
+        "required": [
+          "creator_id",
+          "participant_id"
+        ]
+      },
+      "CreateMessageDto": {
+        "type": "object",
+        "properties": {
+          "receiver_id": {
+            "type": "string"
+          },
+          "conversation_id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "receiver_id",
+          "conversation_id",
+          "message"
+        ]
+      },
+      "CreateSubscriptionDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "SubscribeDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "Frequency": {
+        "type": "string",
+        "enum": [
+          "Daily",
+          "Weekly",
+          "Weekdays",
+          "Weekends"
+        ]
+      },
+      "HabitCategory": {
+        "type": "string",
+        "enum": [
+          "Meditation",
+          "SoundHealing",
+          "Journaling",
+          "Podcast"
+        ]
+      },
+      "CreateHabitDto": {
+        "type": "object",
+        "properties": {
+          "habit_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "frequency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Frequency"
+              }
+            ]
+          },
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HabitCategory"
+              }
+            ]
+          },
+          "duration": {
+            "type": "number",
+            "description": "Duration in days",
+            "example": 30
+          }
+        },
+        "required": [
+          "habit_name",
+          "frequency",
+          "duration"
+        ]
+      },
+      "CompleteHabitDto": {
+        "type": "object",
+        "properties": {
+          "undo": {
+            "type": "boolean",
+            "description": "If true, undo (remove) today's completion"
+          },
+          "duration_minutes": {
+            "type": "number",
+            "description": "Duration in minutes spent on the habit instance (max 1440)"
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional note (<=500 chars)"
+          }
+        }
+      },
+      "UpdateHabitDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateProfileDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateMoodDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateMoodDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "ContactSupportDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Support request description",
+            "minLength": 10
+          },
+          "email": {
+            "type": "string",
+            "description": "Optional contact email override"
+          }
+        },
+        "required": [
+          "description"
+        ]
+      },
+      "UpdateReminderDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

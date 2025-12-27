@@ -171,6 +171,18 @@ http://{domain_name}/api/docs
 
 ---
 
+## Publishing Swagger to GitHub Pages
+
+This project also writes the OpenAPI spec to `docs/openapi.json` on startup. To publish docs on GitHub Pages:
+
+1. Run the backend once locally (e.g. `yarn start:dev`) so `docs/openapi.json` is generated.
+2. Commit the `docs/` folder (`docs/index.html` and `docs/openapi.json`).
+3. In GitHub repository settings, enable GitHub Pages and select the `docs/` folder as the source.
+
+GitHub Pages will then serve the static Swagger UI from that folder even when the backend is not running.
+
+---
+
 ## Reminders API (Current)
 
 The app includes a minute-level scheduler (via NestJS `@Cron`) that checks for due reminders and dispatches notifications. Create reminders via the API to match the client UI.
